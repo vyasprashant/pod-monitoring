@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-monitor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-monitor
+  template:
+    metadata:
+      labels:
+        app: pod-monitor
+    spec:
+      serviceAccountName: banking-app
+      imagePullSecrets:
+          - name: edb-docker-artifactory
+      containers:
+        - name: pod-monitor
+          image: pod-monitoring:1.0.7
+          securityContext:
+            runAsUser: 5017
+          command: ["python", "pod-monitor.py"]
+          env:
+            - name: WEBHOOK_URL
+              value: 'https://outlook.office.com/webhook/{webhook_id}/{webhook_secret}/{channel_id}'
+

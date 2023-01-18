@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-monitor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-monitor
+  template:
+    metadata:
+      labels:
+        app: pod-monitor
+    spec:
+      containers:
+        - name: pod-monitor
+          image: <your_docker_image>
+          command: ["python", "pod-monitor.py"]
+          env:
+            - name: WEBHOOK_URL
+              value: <your_webhook_url>

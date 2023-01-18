@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: pod-monitor-tls
+spec:
+  secretName: pod-monitor-tls
+  duration: 9000h
+  renewBefore: 444h
+  issuerRef:
+    kind: ClusterIssuer
+    name: ca-cluster-issuer
+  dnsNames:
+

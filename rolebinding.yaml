@@ -1,0 +1,56 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pod-monitor-binding
+  namespace: env-dev1
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: pod-monitor
+subjects:
+  - kind: ServiceAccount
+    name: env-app
+    apiGroup: ""
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pod-monitor-binding
+  namespace: env-dev5
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: pod-monitor
+subjects:
+  - kind: ServiceAccount
+    name: env-app
+    apiGroup: ""
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pod-monitor-binding
+  namespace: env-dev2
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: pod-monitor
+subjects:
+  - kind: ServiceAccount
+    name: env-app
+    apiGroup: ""
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pod-monitor-binding
+  namespace: env-dev1
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: pod-monitor
+subjects:
+  - kind: ServiceAccount
+    name: env-app
+    apiGroup: ""
+---
